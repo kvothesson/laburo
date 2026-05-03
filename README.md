@@ -32,20 +32,22 @@ Guía para armar o mejorar el currículum vitae según los estándares del merca
 
 ## Ejemplos de uso
 
-### Consultar el Salario Mínimo
+### Salario Mínimo Vital y Móvil
 
 **Usuario:** "¿A cuánto está el salario mínimo hoy?"
 
 **Claude:**
 ```
-El Salario Mínimo, Vital y Móvil (SMVM) en Argentina es de $262.432/mes (valor vigente a enero 2025).
+El Salario Mínimo, Vital y Móvil (SMVM) en Argentina es de $334.800/mes (dic 2025).
+Para trabajadores jornalizados: $1.642/hora.
 
 Fuente: Consejo del Salario — argentina.gob.ar
+Dato al: diciembre 2025
 ```
 
 ---
 
-### Paritarias de Comercio
+### Paritarias de comercio
 
 **Usuario:** "¿Cuánto tiene que ganar un administrativo de comercio?"
 
@@ -53,11 +55,11 @@ Fuente: Consejo del Salario — argentina.gob.ar
 ```
 ## Sueldo — Administrativo de Comercio
 
-**SMVM vigente:** $262.432/mes
-**Básico de convenio (FAECYS):** ~$650.000 bruto/mes (Administrativo A)
-**Sueldo de bolsillo estimado:** ~$490.000-520.000/mes
+SMVM vigente: $334.800/mes
+Básico de convenio (FAECYS): ~$650.000 bruto/mes (Administrativo A)
+Sueldo de bolsillo estimado: ~$490.000–520.000/mes
 
-**Último acuerdo paritario:** +15% a partir de marzo 2024 + suma no remunerativa
+Último acuerdo paritario: +15% a partir de marzo 2024 + suma no remunerativa
 
 Fuente: Secretaría de Trabajo / FAECYS — argentina.gob.ar
 Dato al: marzo 2024
@@ -65,44 +67,87 @@ Dato al: marzo 2024
 
 ---
 
-### Tarifa para gasista matriculado
+### Paritarias gastronómicas
 
-**Usuario:** "Soy gasista matriculado. ¿Cuánto debería cobrar por hora?"
+**Usuario:** "¿Cuánto gana un mozo?"
 
 **Claude:**
 ```
-## Tarifa — Trabajador Independiente (Gasista Matriculado)
+## Sueldo — Mozo / Gastronómico
 
-Contame tus gastos fijos mensuales (alquiler, herramientas, movilidad) y cuántas horas facturables tenés por mes para calcular tu tarifa exacta.
+SMVM vigente: $334.800/mes
+Básico de convenio (UTHGRA): desde ~$939.463/mes (Categoría D, nivel inicial)
+Categorías superiores (cocinero, recepcionista): $1.000.000–$1.145.000/mes
+Sueldo de bolsillo estimado: ~$700.000–850.000/mes
 
-Como referencia inicial para un gasista en AMBA (2024):
-- Valor hora de mano de obra: $8.000–$12.000/hora
-- Los materiales se presupuestan aparte
-- Anticipo recomendado: 50% para trabajos de más de 4 horas
+Último acuerdo paritario (UTHGRA-FEHGRA):
+  Vigencia: junio 2025 – mayo 2026
+  Aumentos escalonados en 7 cuotas + sumas no remunerativas
+  Las sumas se incorporan al básico en febrero 2026
 
-Fuente: AFIP Monotributo — afip.gob.ar
+💡 Las propinas no están en estos montos pero son parte real del ingreso.
+
+Fuente: UTHGRA — uthgra.org.ar
+Dato al: abril 2026
 ```
 
 ---
 
-### Ayuda con CV para buscar laburo de cajero
+### Paritarias metalúrgicas
 
-**Usuario:** "Ayudame a armar mi CV para buscar laburo de cajero"
+**Usuario:** "Soy operario metalúrgico, ¿cuánto debería ganar?"
 
 **Claude:**
 ```
-Claro. Para un perfil de atención al cliente en Argentina, tu CV debe seguir este orden:
+## Sueldo — Operario Metalúrgico (UOM)
 
-✅ Datos de contacto: nombre, teléfono, email, localidad (sin DNI ni CUIL)
-✅ Perfil: "Cajero con experiencia en manejo de valores y posnet"
-✅ Experiencia: del más reciente al más antiguo
-✅ Formación: secundario completo (o en curso)
+SMVM vigente: $334.800/mes
+Ingreso Mínimo Global de Referencia (IMGR): $1.016.008/mes (feb 2026)
+  (incluye remunerativos + no remunerativos, sin horas extras)
+Sueldo de bolsillo estimado: ~$750.000–820.000/mes
 
-Qué NO incluir: foto, estado civil, DNI, ni referencias de familiares.
+Último acuerdo paritario (UOM):
+  Homologado el 04/02/2026 — Disposición 207/2026
+  Cronograma oct 2025 – abr 2026: +4,2% remunerativo
+  + sumas fijas no remunerativas mensuales ($15.000–$35.000)
 
-Tip: En Argentina se valora que el CV no supere las 2 páginas. Guardalo en PDF.
+⚠️ El básico varía según rama. Consultá tu seccional UOM.
 
-Fuente: Portal Empleo — portalempleo.gob.ar
+Fuente: UOM — uom.org.ar / Boletín Oficial Disposición 207/2026
+Dato al: febrero 2026
+```
+
+---
+
+### Tarifa para trabajadora independiente
+
+**Usuario:** "Soy diseñadora gráfica independiente, ¿cuánto cobro por hora?"
+
+**Claude:**
+```
+## Tarifa — Diseñadora Gráfica Independiente
+
+Con valores típicos de AMBA (Monotributo activo, 2026):
+
+  Gastos fijos:              $250.000/mes
+  Aportes Monotributo (Cat. D): ~$95.000/mes
+  Ganancia objetivo:         $600.000/mes
+  ──────────────────────────────────────
+  Total necesario:           $945.000/mes
+  Horas facturables:         80 hs/mes
+  ──────────────────────────────────────
+  Valor hora mínimo:         $11.813 → redondeá a $12.000–$13.000
+
+Categoría Monotributo estimada: D (hasta $3.887.000 facturación anual — servicios)
+Cuota mensual: ~$95.000
+
+Para presupuestar un proyecto:
+  - Materiales/licencias: separar del valor hora
+  - Imprevistos: +15% sobre el total
+  - Anticipo: 30–50% antes de arrancar
+
+Fuente: AFIP Monotributo — afip.gob.ar
+Dato al: mayo 2026
 ```
 
 ---
@@ -121,7 +166,8 @@ Para un perfil docente en Argentina, el CV debe incluir:
 ✅ Capacitaciones: cursos con puntaje reconocido por el Ministerio
 ✅ Disponibilidad horaria y geográfica
 
-Qué se valora: puntaje docente acumulado, cargos jerárquicos, publicaciones o proyectos institucionales.
+Se valora: puntaje docente acumulado, cargos jerárquicos, proyectos institucionales.
+Qué NO incluir: foto, estado civil, referencias de familiares.
 
 Fuente: Portal Empleo — portalempleo.gob.ar
 ```
@@ -134,4 +180,6 @@ Fuente: Portal Empleo — portalempleo.gob.ar
 - [INDEC — Índice de Salarios](https://www.indec.gob.ar/indec/web/Nivel4-Tema-4-31-61)
 - [Portal Empleo — portalempleo.gob.ar](https://www.portalempleo.gob.ar)
 - [AFIP Monotributo — afip.gob.ar](https://www.afip.gob.ar/monotributo/categorias.asp)
-- [Consejo del Salario — argentina.gob.ar](https://www.argentina.gob.ar/trabajo/consejosalario)
+- [Consejo del Salario — argentina.gob.ar](https://www.argentina.gob.ar/trabajo/consejodelsalario)
+- [UTHGRA — uthgra.org.ar](https://uthgra.org.ar)
+- [UOM — uom.org.ar](https://uom.org.ar)
