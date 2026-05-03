@@ -1,122 +1,123 @@
 ---
-description: Mercado laboral tech argentino en tiempo real — sueldos, tarifas, CV y propuestas. Usar cuando el usuario pregunta cuanto cobrar, como armar un CV o una propuesta económica para el mercado argentino o remoto.
+description: Proporciona datos sobre el mercado laboral argentino: sueldos, paritarias, SMVM, consejos de CV y presupuestos para independientes. Se activa con keywords como "sueldo", "cuanto gana", "paritaria", "armar cv", "presupuesto".
 ---
 
-## Comandos
+# Skill: Laburo
 
-### `/laburo mercado`
+## Comando: sueldo
 
-Hace WebSearch con la query:
-`"encuesta sueldos sysarmy openqube [año actual] resultados tech argentina"`
+Busca y devuelve información actualizada sobre ingresos para cualquier sector laboral argentino.
 
-Presenta el estado del mercado:
-- Mediana general IT
-- Sueldos por rol: desarrolladores, DevOps, Data, QA, diseñadores
-- Sueldos por senioridad: Jr / Semi-Sr / Sr
-- % con sueldo dolarizado
-- % trabajando como contractor
-- Tendencias destacadas
+1. **Fetch:** `https://www.argentina.gob.ar/trabajo/consejosalario` (SMVM vigente)
+2. **Fetch:** `https://www.indec.gob.ar/indec/web/Nivel4-Tema-4-31-61` (Índice de Salarios)
+3. **WebSearch:** `site:argentina.gob.ar paritarias [sector mencionado por el usuario]`
 
-Fallback si WebSearch falla: usar la URL directa `https://sysarmy.com/blog` y buscar el post más reciente de encuesta de sueldos.
+Si el usuario no menciona sector, preguntar: "¿Para qué actividad o gremio necesitás el dato?"
 
-Formato de respuesta:
-```
-## Mercado IT Argentina — [periodo de la encuesta]
-
-**Mediana general IT:** ARS $X.XXX.XXX bruto/mes
-
-| Rol           | Jr        | Semi-Sr   | Sr        |
-|---------------|-----------|-----------|-----------|
-| Desarrollador | $X.XXX.XXX | $X.XXX.XXX | $X.XXX.XXX |
-| DevOps/Infra  | ...       | ...       | ...       |
-| Data/ML       | ...       | ...       | ...       |
-
-**Contexto:**
-- X% tiene sueldo dolarizado
-- X% trabaja como contractor
-
-Fuente: Encuesta Sysarmy/OpenQube [periodo] — https://sueldos.openqube.io
-Fecha del dato: [fecha de publicación]
-```
-
----
-
-### `/laburo tarifa [rol] [senioridad]`
-
-Hace WebSearch con:
-`"sueldo [rol] [senioridad] argentina [año actual] pesos dolares remoto"`
-
-Y también:
-`"[rol] [senioridad] argentina remoto exterior usd freelance [año actual]"`
-
-Presenta tres escenarios:
-1. Relación de dependencia local (ARS)
-2. Contractor en empresa argentina (ARS/USD)
-3. Remoto internacional (USD)
+Respuesta incluye:
+- Salario bruto y "sueldo de bolsillo" estimado (neto ~75-80% del bruto en relación de dependencia)
+- Último aumento acordado en paritarias (monto y porcentaje)
+- SMVM vigente como referencia de piso
+- **Fuente: [Organismo] — [URL]**
 
 Formato:
 ```
-## Tarifa — [Rol] [Senioridad]
+## Sueldo — [Sector / Rol]
 
-**En relación de dependencia (AR):** ARS $X.XXX.XXX bruto/mes
-**Contractor local:** ARS $X.XXX.XXX / mes (equivalente a ~USD X.XXX)
-**Remoto internacional:** USD $X.XXX–$X.XXX / mes
+**SMVM vigente:** $XXX.XXX/mes
+**Básico de convenio ([Gremio]):** $XXX.XXX bruto/mes
+**Sueldo de bolsillo estimado:** ~$XXX.XXX/mes
 
-💡 Para [Rol] [Senioridad], el percentil 75 en AR está en $X.XXX.XXX.
-El mercado internacional paga entre X–X veces más para el mismo rol.
+**Último acuerdo paritario:** +XX% a partir de [mes/año]
 
-Fuente: Sysarmy/OpenQube + búsqueda de mercado
-Fecha: [mes y año]
+Fuente: Secretaría de Trabajo / FAECYS / [gremio] — argentina.gob.ar
+Dato al: [mes y año]
 ```
 
-Fallback: WebSearch a `site:glassdoor.com.ar [rol] argentina` o `site:coderhouse.com sueldos [rol] argentina`.
+---
+
+## Comando: freelo
+
+Asistencia para trabajadores independientes: monotributistas, cuenta propistas y trabajadores informales que quieren ordenar sus ingresos.
+
+1. **Fetch:** `https://www.afip.gob.ar/monotributo/categorias.asp` (categorías y facturación anual)
+2. **Lógica de cálculo de hora:**
+   - Solicitar al usuario: gastos fijos mensuales, horas disponibles por mes, ganancia deseada
+   - Fórmula: `(Gastos fijos + Aportes Monotributo + Ganancia deseada) / Horas mes`
+3. **WebSearch:** `"valores referencia [servicio] independiente argentina [año actual]"` para validar contra el mercado
+
+Respuesta incluye:
+- Valor hora sugerido (con desglose del cálculo)
+- Categoría de Monotributo estimada según facturación proyectada
+- Consejo sobre estructura de presupuesto (materiales + mano de obra + % imprevistos)
+- **Fuente: AFIP — [URL]**
+
+Formato:
+```
+## Tarifa — Trabajador Independiente
+
+**Valor hora sugerido:** $XX.XXX/hora
+  - Gastos fijos cubiertos: $XXX.XXX/mes
+  - Aportes Monotributo estimados: $XX.XXX/mes
+  - Ganancia objetivo: $XXX.XXX/mes
+  - Horas facturables: XX hs/mes
+
+**Categoría Monotributo estimada:** Categoría [X]
+  - Facturación anual proyectada: $X.XXX.XXX
+  - Cuota mensual: ~$XX.XXX
+
+**Consejo para presupuesto:**
+  - Materiales/insumos: separar del valor hora
+  - Imprevistos: sumar 15-20% al total
+  - Anticipo recomendado: 30-50%
+
+Fuente: AFIP Monotributo — afip.gob.ar
+Dato al: [mes y año]
+```
 
 ---
 
-### `/laburo cv [objetivo]`
+## Comando: cv
 
-El objetivo puede ser "empresa local", "startup argentina", "empresa internacional", "trabajo remoto", u otro texto libre.
+Guía para armar o mejorar el currículum vitae según el mercado laboral argentino. Aplica a cualquier sector, no solo tech.
 
-Pedí al usuario que comparta el CV en texto o los puntos principales de su experiencia si no los compartió aún.
+1. **Fetch:** `https://www.argentina.gob.ar/trabajo/preparate` (guía oficial Portal Empleo)
+2. Si el usuario comparte su CV o perfil, analizar y sugerir mejoras concretas.
+3. Si no lo comparte, entregar el checklist estructural y preguntar el sector objetivo.
 
-Luego sugerí adaptaciones concretas según el objetivo:
+Respuesta incluye:
+- Checklist de secciones obligatorias
+- Tips de redacción adaptados al sector
+- Qué NO incluir
+- **Fuente: Portal Empleo — portalempleo.gob.ar**
 
-**Para empresa local / startup AR:**
-- Destacar stack técnico específico (no genérico)
-- Incluir proyectos con impacto medible en ARS o usuarios
-- Formato: 1 página, en español, sin foto
+Checklist estándar Argentina:
+```
+✅ Datos de contacto (nombre, teléfono, email, localidad — sin DNI ni CUIL)
+✅ Perfil profesional (2-3 líneas con el rol objetivo)
+✅ Experiencia laboral (del más reciente al más antiguo)
+✅ Formación (título, institución, año de egreso o estado)
+⬜ Cursos y capacitaciones (opcional pero valorado)
+⬜ Idiomas (si aplica)
+```
 
-**Para empresa internacional / remoto:**
-- Traducir a inglés (o spanglish según empresa)
-- Formato: resume de 1 página, en inglés, sin foto, sin fecha de nacimiento ni DNI
-- Destacar experiencia con equipos remotos, async, y herramientas globales (GitHub, Jira, Slack)
-- Cuantificar logros en métricas (usuarios, uptime, reducción de tiempo, etc.)
+Tips por sector:
+- **Comercio / Administración:** destacar manejo de caja, sistemas (Tango, SAP), atención al cliente
+- **Gastronomía / Turismo:** incluir disponibilidad horaria y si tenés carnet de manipulador de alimentos
+- **Construcción / Oficios:** especificar materiales y herramientas manejadas, certificaciones
+- **Docencia:** consignar título docente, nivel, jurisdicción y antigüedad
 
-Respondé con sugerencias puntuales sobre el CV del usuario, no con un template genérico.
-
----
-
-### `/laburo propuesta [contexto]`
-
-El contexto puede incluir: tipo de proyecto, duración estimada, cliente (empresa local, startup, internacional), si es por hora o por proyecto, senioridad.
-
-Pedí los datos que falten si el contexto es incompleto.
-
-Armar la propuesta con:
-1. **Tarifa base:** calculada con `/laburo tarifa` para el rol/senioridad implícito
-2. **Estructura del proyecto:** fases, entregables, hitos
-3. **Condiciones de pago:** anticipo recomendado (30-50%), hitos, forma de pago
-4. **Cláusulas clave:** revisiones incluidas, fuera de scope, propiedad intelectual
-5. **Ajuste por inflación** si el proyecto es en pesos y dura más de 30 días
-
-Formato: propuesta lista para copiar y enviar, en tono profesional pero directo.
+Regla de extensión: **máximo 2 páginas**, formato PDF, fuente legible (Arial o Calibri 11pt).
 
 ---
 
 ## Tono
 
-- Directo, sin paja institucional
-- Números concretos, no rangos vagos
-- Si el mercado está raro (inflación alta, dólar inestable), decirlo
-- No dar consejos de vida, solo datos accionables
-- Si hay incertidumbre en los datos, aclararlo y dar la fuente
+Empático y práctico. Usar términos claros:
+- "sueldo de bolsillo" en vez de "remuneración neta"
+- "categoría de Monotributo" en vez de "régimen simplificado"
+- "convenio colectivo" explicado brevemente si el usuario no lo conoce
+
+**Regla de oro:** Siempre incluir `Fuente: [Organismo] — [URL]` al final de cada respuesta.
+
+Ante datos desactualizados o incertidumbre, aclararlo y recomendar verificar en la fuente oficial.
