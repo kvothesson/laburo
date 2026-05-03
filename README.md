@@ -1,6 +1,8 @@
 # laburo
 
-Mercado laboral tech argentino en tiempo real. Sueldos actualizados, tarifas para freelancers y ayuda para armar CV o propuestas económicas.
+Plugin para Claude Code sobre el mercado laboral argentino.
+
+Cualquier trabajador —registrado, informal, monotributista o desempleado— puede consultar sueldos, paritarias, tarifas para independientes y consejos para armar su CV.
 
 ## Instalación
 
@@ -10,96 +12,126 @@ claude --plugin-dir /ruta/a/laburo
 
 ## Comandos
 
-### `/laburo mercado`
+### `/laburo sueldo [sector o rol]`
 
-State of the market: sueldos promedio por rol y senioridad, % dolarizado, tendencias.
+Consulta el SMVM, el Índice de Salarios del INDEC y los últimos acuerdos paritarios para el sector indicado.
 
+---
+
+### `/laburo freelo [servicio]`
+
+Ayuda a trabajadores independientes a calcular su valor hora y determinar la categoría de Monotributo correspondiente.
+
+---
+
+### `/laburo cv [sector objetivo]`
+
+Guía para armar o mejorar el currículum vitae según los estándares del mercado laboral argentino.
+
+---
+
+## Ejemplos de uso
+
+### Consultar el Salario Mínimo
+
+**Usuario:** "¿A cuánto está el salario mínimo hoy?"
+
+**Claude:**
 ```
-## Mercado IT Argentina — Encuesta Sysarmy 2025.01
+El Salario Mínimo, Vital y Móvil (SMVM) en Argentina es de $262.432/mes (valor vigente a enero 2025).
 
-**Mediana general IT:** ARS $2.289.000 bruto/mes
-
-| Rol           | Jr          | Semi-Sr     | Sr          |
-|---------------|-------------|-------------|-------------|
-| Desarrollador | $1.219.000  | $1.900.000  | $2.600.000  |
-| DevOps/Infra  | $1.100.000  | $1.800.000  | $2.500.000  |
-| Data/ML       | $1.300.000  | $2.100.000  | $3.000.000  |
-
-**Contexto:**
-- 64% NO tiene sueldo dolarizado
-- 17% trabaja como contractor
-
-Fuente: Encuesta Sysarmy/OpenQube 2025.01 — https://sueldos.openqube.io/encuesta-sueldos-2025.01/
-Fecha del dato: enero 2025 (~5.400 participantes)
+Fuente: Consejo del Salario — argentina.gob.ar
 ```
 
 ---
 
-### `/laburo tarifa desarrollador senior`
+### Paritarias de Comercio
 
-Cuánto cobrar según mercado y modalidad.
+**Usuario:** "¿Cuánto tiene que ganar un administrativo de comercio?"
 
+**Claude:**
 ```
-## Tarifa — Desarrollador Senior
+## Sueldo — Administrativo de Comercio
 
-**En relación de dependencia (AR):** ARS $2.600.000 bruto/mes
-**Contractor local:** ARS $3.000.000–$3.500.000 / mes
-**Remoto internacional:** USD $3.500–$7.000 / mes
+**SMVM vigente:** $262.432/mes
+**Básico de convenio (FAECYS):** ~$650.000 bruto/mes (Administrativo A)
+**Sueldo de bolsillo estimado:** ~$490.000-520.000/mes
 
-💡 Los argentinos que trabajan remoto para el exterior cobran en promedio USD 2.500–5.000/mes.
-   Senior especializado puede llegar a USD 7.000/mes.
+**Último acuerdo paritario:** +15% a partir de marzo 2024 + suma no remunerativa
 
-Fuente: Sysarmy/OpenQube 2025.01 + Infobae/Cronista 2024
-Fecha: enero 2025
-```
-
----
-
-### `/laburo cv internacional`
-
-Adaptación del CV para el mercado internacional o remoto.
-
-```
-## Sugerencias para tu CV — Mercado internacional
-
-1. **Formato:** resume de 1 página en inglés, sin foto, sin fecha de nacimiento
-2. **Stack:** listá tecnologías específicas (no "desarrollo web" sino "React 18, TypeScript, Node.js")
-3. **Logros:** cuantificá ("reduje tiempo de build un 40%" no "mejoré el pipeline")
-4. **Experiencia remota:** destacá si usaste GitHub, Jira, Notion, Slack con equipos distribuidos
-5. **LinkedIn:** URL personalizada, en inglés, mismo contenido que el CV
-
-[El plugin analiza tu CV específico cuando lo pegás en el chat]
+Fuente: Secretaría de Trabajo / FAECYS — argentina.gob.ar
+Dato al: marzo 2024
 ```
 
 ---
 
-### `/laburo propuesta freelance backend 3 meses startup`
+### Tarifa para gasista matriculado
 
-Armado de propuesta económica lista para enviar.
+**Usuario:** "Soy gasista matriculado. ¿Cuánto debería cobrar por hora?"
 
+**Claude:**
 ```
-## Propuesta — Desarrollo Backend / 3 meses / Startup
+## Tarifa — Trabajador Independiente (Gasista Matriculado)
 
-**Tarifa mensual:** ARS $3.200.000 (equivalente a ~USD 2.400 al tipo MEP)
-**Total proyecto:** ARS $9.600.000
+Contame tus gastos fijos mensuales (alquiler, herramientas, movilidad) y cuántas horas facturables tenés por mes para calcular tu tarifa exacta.
 
-**Estructura de pago:**
-- 30% anticipado al inicio: ARS $2.880.000
-- 35% al hito 2 (mes 2): ARS $3.360.000
-- 35% final a la entrega: ARS $3.360.000
+Como referencia inicial para un gasista en AMBA (2024):
+- Valor hora de mano de obra: $8.000–$12.000/hora
+- Los materiales se presupuestan aparte
+- Anticipo recomendado: 50% para trabajos de más de 4 horas
 
-**Ajuste por inflación:** si el proyecto supera 30 días en pesos,
-aplicar ajuste mensual por IPC publicado por INDEC.
+Fuente: AFIP Monotributo — afip.gob.ar
+```
 
-**Fuera de scope:** deploys a producción, soporte post-entrega, cambios de requerimientos.
+---
 
-[El plugin personaliza la propuesta según tu contexto específico]
+### Ayuda con CV para buscar laburo de cajero
+
+**Usuario:** "Ayudame a armar mi CV para buscar laburo de cajero"
+
+**Claude:**
+```
+Claro. Para un perfil de atención al cliente en Argentina, tu CV debe seguir este orden:
+
+✅ Datos de contacto: nombre, teléfono, email, localidad (sin DNI ni CUIL)
+✅ Perfil: "Cajero con experiencia en manejo de valores y posnet"
+✅ Experiencia: del más reciente al más antiguo
+✅ Formación: secundario completo (o en curso)
+
+Qué NO incluir: foto, estado civil, DNI, ni referencias de familiares.
+
+Tip: En Argentina se valora que el CV no supere las 2 páginas. Guardalo en PDF.
+
+Fuente: Portal Empleo — portalempleo.gob.ar
+```
+
+---
+
+### Ayuda con CV para docente
+
+**Usuario:** "Necesito actualizar mi CV para presentarme a un cargo docente"
+
+**Claude:**
+```
+Para un perfil docente en Argentina, el CV debe incluir:
+
+✅ Datos personales: nombre, DNI, domicilio, teléfono, email
+✅ Título docente: carrera, institución, año de egreso y resolución de validez
+✅ Antigüedad: años frente al aula por nivel y jurisdicción
+✅ Capacitaciones: cursos con puntaje reconocido por el Ministerio
+✅ Disponibilidad horaria y geográfica
+
+Qué se valora: puntaje docente acumulado, cargos jerárquicos, publicaciones o proyectos institucionales.
+
+Fuente: Portal Empleo — portalempleo.gob.ar
 ```
 
 ---
 
 ## Fuentes
 
-- [Encuesta de Sueldos Sysarmy/OpenQube](https://sueldos.openqube.io) — publicación semestral
-- [Sysarmy Blog](https://sysarmy.com/blog) — análisis y novedades
-- [Infobae: sueldos remotos Argentina](https://www.infobae.com/economia/2024/09/15/los-argentinos-que-trabajan-para-el-exterior-ganan-entre-2500-y-5000-dolares-por-mes/)
+- [Ministerio de Trabajo — argentina.gob.ar](https://www.argentina.gob.ar/trabajo)
+- [INDEC — Índice de Salarios](https://www.indec.gob.ar/indec/web/Nivel4-Tema-4-31-61)
+- [Portal Empleo — portalempleo.gob.ar](https://www.portalempleo.gob.ar)
+- [AFIP Monotributo — afip.gob.ar](https://www.afip.gob.ar/monotributo/categorias.asp)
+- [Consejo del Salario — argentina.gob.ar](https://www.argentina.gob.ar/trabajo/consejosalario)
