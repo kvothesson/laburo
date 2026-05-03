@@ -1,0 +1,11 @@
+{
+  "name": "laburo",
+  "version": "1.0.0",
+  "description": "Mercado laboral argentino para tech y profesionales",
+  "skills": [
+    {
+      "name": "laburo",
+      "path": "skills/laburo/SKILL.md"
+    }
+  ]
+}
