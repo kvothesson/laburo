@@ -4,6 +4,12 @@ description: Proporciona datos sobre el mercado laboral argentino: sueldos, pari
 
 # Skill: Laburo
 
+## Fecha actual
+
+Antes de cualquier WebSearch que incluya año o mes, confirmá la fecha del sistema (`Bash: date` o contexto `currentDate`). Nunca asumas ni hardcodees el año — usá siempre el que reporta el sistema.
+
+---
+
 ## Comando: sueldo
 
 Busca y devuelve información actualizada sobre ingresos para cualquier sector laboral argentino.
