@@ -10,6 +10,16 @@ Cualquier trabajador —registrado, informal, monotributista o desempleado— pu
 claude --plugin-dir /ruta/a/laburo
 ```
 
+### OpenAI Codex
+
+No requiere instalación. Codex lee `AGENTS.md` automáticamente al abrirse en este directorio.
+
+```bash
+git clone https://github.com/kvothesson/laburo ~/laburo
+cd ~/laburo
+codex
+```
+
 ## Comandos
 
 ### `/laburo sueldo [sector o rol]`
