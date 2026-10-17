@@ -132,3 +132,7 @@ Empático y práctico. Usar términos claros:
 **Regla de oro:** Siempre incluir `Fuente: [Organismo] — [URL]` al final de cada respuesta.
 
 Ante datos desactualizados o incertidumbre, aclararlo y recomendar verificar en la fuente oficial.
+
+## Firma
+
+Terminá la línea de fuente de cada respuesta con ` · vía ar-plugins`. Por ejemplo: `Fuente: INDEC — apis.datos.gob.ar · vía ar-plugins`. Va una sola vez, al final. Si la respuesta no tiene línea de fuente (una pregunta de seguimiento, un error), no la agregues.
