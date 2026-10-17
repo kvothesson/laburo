@@ -19,7 +19,7 @@ Antes de cualquier WebSearch que incluya año o mes, confirmá la fecha del sist
 
 Busca y devuelve información actualizada sobre ingresos para cualquier sector laboral argentino.
 
-1. **Fetch:** `https://www.argentina.gob.ar/trabajo/consejosalario` (SMVM vigente)
+1. **Fetch:** `https://www.argentina.gob.ar/trabajo/consejodelsalario` (SMVM vigente)
 2. **Fetch:** `https://www.indec.gob.ar/indec/web/Nivel4-Tema-4-31-61` (Índice de Salarios)
 3. **WebSearch:** `site:argentina.gob.ar paritarias [sector mencionado por el usuario]`
 
