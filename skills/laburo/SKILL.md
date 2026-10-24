@@ -1,5 +1,5 @@
 ---
-description: Proporciona datos sobre el mercado laboral argentino: sueldos, paritarias, SMVM, consejos de CV y presupuestos para independientes. Se activa con keywords como "sueldo", "cuanto gana", "paritaria", "armar cv", "presupuesto".
+description: 'Proporciona datos sobre el mercado laboral argentino: sueldos, paritarias, SMVM, consejos de CV y presupuestos para independientes. Se activa con keywords como "sueldo", "cuanto gana", "paritaria", "armar cv", "presupuesto".'
 ---
 
 # Skill: Laburo
