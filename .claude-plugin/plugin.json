@@ -1,11 +1,12 @@
 {
   "name": "laburo",
-  "version": "2.2.2",
-  "description": "Mercado laboral argentino para todo el espectro de trabajadores — sueldos, paritarias, SMVM, tarifas para independientes y CV",
-  "skills": [
-    {
-      "name": "laburo",
-      "path": "skills/laburo/SKILL.md"
-    }
-  ]
+  "version": "2.2.3",
+  "description": "Mercado laboral argentino: rangos de sueldo por puesto, paritarias, salario mínimo y tarifas freelance, con fuente y fecha.",
+  "author": {
+    "name": "Kvothesson",
+    "url": "https://github.com/kvothesson"
+  },
+  "homepage": "https://github.com/kvothesson/laburo",
+  "repository": "https://github.com/kvothesson/laburo",
+  "license": "MIT"
 }
